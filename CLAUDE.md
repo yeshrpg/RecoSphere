@@ -5,7 +5,7 @@ Read PRD.md, schema.md, architecture.md, tasks.md before doing any work here. Sp
 ## Locked decisions
 - Domains: Movies (MovieLens 100K) + Books (Goodbooks-10k)
 - Method: Hybrid (CF-SVD + content embeddings) per domain, plus a shared sentence-transformer embedding space for cross-domain cold-start recs
-- App: Streamlit, hosted on Streamlit Community Cloud
+- App: Streamlit, hosted on Hugging Face Spaces (Streamlit SDK)
 - No auth, no real-time retraining, no mobile app (out of scope — see PRD §7)
 
 ## Conventions

@@ -1,4 +1,4 @@
-# architecture.md
+# architecture.md — RecoSphere
 
 ## Stack
 - **Language**: Python 3.11
@@ -6,8 +6,8 @@
 - **Content embeddings**: `sentence-transformers` (`all-MiniLM-L6-v2`) — small, CPU-friendly, good enough for genre/tag text
 - **Similarity/vector ops**: numpy, scikit-learn (cosine_similarity)
 - **App/UI**: Streamlit
-- **Hosting**: Streamlit Community Cloud (free tier, connects directly to GitHub repo, zero infra setup — best fit given deadline + "most suitable" hosting requirement)
-- **Packaging**: requirements.txt (no heavy deep learning framework needed — keeps Streamlit Cloud build fast/within free resource limits)
+- **Hosting**: Hugging Face Spaces (Streamlit SDK) (free tier, connects directly to GitHub repo, zero infra setup — best fit given deadline + "most suitable" hosting requirement)
+- **Packaging**: requirements.txt (no heavy deep learning framework needed — keeps HF Spaces build fast/within free resource limits)
 
 ## Why this stack over alternatives (for report §2 "existing methodologies" contrast + justification)
 - Full Neural CF (PyTorch) would need GPU-ish training time and a heavier deploy — too slow for deadline, marginal gain over SVD+content hybrid for datasets this size.
@@ -48,7 +48,7 @@ class Recommender:
 Hybrid score = `alpha * cf_score + beta * content_score` (+ cross-domain embedding score when applicable); alpha/beta tuned in evaluate.py and logged in reports/results.md.
 
 ## Deployment steps (Tier — do this last, after app works locally)
-1. Push repo to GitHub (public, since Streamlit Cloud free tier needs that — or a connected private repo if available).
+1. Push repo to GitHub (public, since HF Spaces free tier needs that — or a connected private repo if available).
 2. Commit trained model artifacts under `models/` via Git LFS *or* regenerate them in a `setup.sh`/first-run script if repo size is a concern (decide once artifact sizes are known — flagged in tasks.md).
-3. streamlit.io/cloud → New app → point at repo/branch/`app/streamlit_app.py` → deploy.
+3. huggingface.co/new-space (SDK: Streamlit) → New app → point at repo/branch/`app/streamlit_app.py` → deploy.
 4. Verify live URL, add to README + report.
