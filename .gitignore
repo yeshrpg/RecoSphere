@@ -7,3 +7,6 @@ models/*.npy
 data/raw/*.zip
 .DS_Store
 CLAUDE.md
+
+!models/*.pkl
+!models/*.npy
