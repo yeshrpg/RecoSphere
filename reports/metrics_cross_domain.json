@@ -1,0 +1,5 @@
+{
+  "n_eval_users": 300,
+  "cross_domain_precision@10": 0.005,
+  "popularity_baseline_precision@10": 0.21266666666666667
+}
