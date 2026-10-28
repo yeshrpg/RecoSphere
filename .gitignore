@@ -6,3 +6,4 @@ models/*.pkl
 models/*.npy
 data/raw/*.zip
 .DS_Store
+CLAUDE.md

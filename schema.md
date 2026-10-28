@@ -21,8 +21,8 @@
 ## Model artifacts (models/, gitignored, loaded by app at runtime)
 - `cf_movie_svd.pkl` — trained SVD model (movies)
 - `cf_book_svd.pkl` — trained SVD model (books)
-- `content_sim_movie.npy` — item-item cosine similarity matrix (movies)
-- `content_sim_book.npy` — item-item cosine similarity matrix (books)
+- `raw_emb_movie.npy` — item embeddings, 384-dim (movies); similarity computed on-the-fly, not stored as a full matrix (book domain's NxN matrix would be ~381MB)
+- `raw_emb_book.npy` — item embeddings, 384-dim (books); same approach
 - `shared_embeddings.npy` + `item_index.json` — cross-domain embedding space + id lookup
 
 ## App-level user object (in-session, not persisted)
